@@ -133,6 +133,10 @@ public class AddressBook {
     private static final String COMMAND_EXIT_DESC = "Exits the program.";
     private static final String COMMAND_EXIT_EXAMPLE = COMMAND_EXIT_WORD;
 
+    private static final String COMMAND_PRINTSOMETHING_WORD = "print";
+    private static final String COMMAND_PRINTSOMETHING_DESC = "Prints something I choose.";
+    private static final String COMMAND_PRINTSOMETHING_EXAMPLE = COMMAND_PRINTSOMETHING_WORD;
+
     private static final String DIVIDER = "===================================================";
 
 
@@ -383,6 +387,8 @@ public class AddressBook {
             return getUsageInfoForAllCommands();
         case COMMAND_EXIT_WORD:
             executeExitProgramRequest();
+         case COMMAND_PRINTSOMETHING_WORD:
+            return executePrintSomething();
         default:
             return getMessageForInvalidCommandInput(commandType, getUsageInfoForAllCommands());
         }
@@ -584,6 +590,10 @@ public class AddressBook {
      */
     private static void executeExitProgramRequest() {
         exitProgram();
+    }
+
+    private static String executePrintSomething() {
+        return "Hello World";
     }
 
     /*
@@ -1088,7 +1098,8 @@ public class AddressBook {
                 + getUsageInfoForDeleteCommand() + LS
                 + getUsageInfoForClearCommand() + LS
                 + getUsageInfoForExitCommand() + LS
-                + getUsageInfoForHelpCommand();
+                + getUsageInfoForHelpCommand() + LS
+                + getUsageInfoForPrintAnythingCommand();
     }
 
     /** Returns the string for showing 'add' command usage instruction */
@@ -1134,6 +1145,11 @@ public class AddressBook {
     private static String getUsageInfoForExitCommand() {
         return String.format(MESSAGE_COMMAND_HELP, COMMAND_EXIT_WORD, COMMAND_EXIT_DESC)
                 + String.format(MESSAGE_COMMAND_HELP_EXAMPLE, COMMAND_EXIT_EXAMPLE);
+    }
+
+    private static String getUsageInfoForPrintAnythingCommand() {
+        return String.format(MESSAGE_COMMAND_HELP, COMMAND_PRINTSOMETHING_WORD, COMMAND_PRINTSOMETHING_DESC)
+                + String.format(MESSAGE_COMMAND_HELP_EXAMPLE, COMMAND_PRINTSOMETHING_EXAMPLE);
     }
 
 
